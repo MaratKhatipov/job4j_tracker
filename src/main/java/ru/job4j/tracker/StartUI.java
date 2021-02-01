@@ -9,5 +9,18 @@ public class StartUI {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
 				"dd-MMMM-EEEE-yyyy HH:mm:ss");
 		System.out.println(predmet.getCreated().format(formatter));
+
+		Tracker tracker = new Tracker();
+		tracker.add(new Item());
+		int tmp = 2;
+		System.out.println(tracker.findById(tmp));
+
+		/*
+		Tracker tracker = new Tracker();
+		Item findItem = tracker.add(new Item());
+		int tmp = 5;
+		Item findId = tracker.findById(tmp);
+		System.out.println(findId);
+		 */
 	}
 }
