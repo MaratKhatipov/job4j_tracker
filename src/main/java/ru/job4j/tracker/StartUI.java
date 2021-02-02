@@ -14,13 +14,8 @@ public class StartUI {
 		tracker.add(new Item());
 		int tmp = 2;
 		System.out.println(tracker.findById(tmp));
-
-		/*
-		Tracker tracker = new Tracker();
-		Item findItem = tracker.add(new Item());
-		int tmp = 5;
-		Item findId = tracker.findById(tmp);
-		System.out.println(findId);
-		 */
+		System.out.println("9. toString [#442871]");
+		Item chekItem = new Item();
+		System.out.println(chekItem.toString());
 	}
 }
