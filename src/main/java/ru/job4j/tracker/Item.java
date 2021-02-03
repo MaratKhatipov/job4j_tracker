@@ -14,9 +14,13 @@ public class Item {
     private int id;
     private String name;
     private DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern(
-            "dd-MMMM-EEEE-yyyy HH:mm:ss");
+            "dd-MMMM-EEEE-yyyy HH:mm");
 
     public Item() {
+    }
+
+    public Item(String name) {
+        this.name = name;
     }
 
     public Item(int id) {
@@ -50,10 +54,10 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item {"
-                + "created=" + created.format(timeFormatter)
-                + ", id=" + id
-                + ", name='" + name + '\''
+        return " Item {"
+                + "created = " + created.format(timeFormatter)
+                +  ", id = " + id
+                +  ", name = '" + name + '\''
                 + '}';
     }
 }
