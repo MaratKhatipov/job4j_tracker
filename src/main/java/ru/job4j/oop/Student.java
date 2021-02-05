@@ -9,7 +9,7 @@ public class Student {
 
 	public void song() {
 		for (int i = 0; i < 3; i++) {
-			System.out.println("I believe I can fly");
+			System.out.println("I believe I can  fly");
 		}
 	}
 
