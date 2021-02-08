@@ -23,7 +23,7 @@ public class StartUI {
 		System.out.println("Create a new: " + item);
 	}
 
-	public static void shoeAllItems(Tracker tracker) {
+	public static void showAllItems(Tracker tracker) {
 		System.out.println("1. Show all items: ");
 		Item[] selectFindAll = tracker.findAll();
 		for (Item result : selectFindAll) {
@@ -101,7 +101,7 @@ public class StartUI {
 			if (select == 0) {
 				StartUI.createItem(input, tracker);
 			} else if (select == 1) {
-				StartUI.shoeAllItems(tracker);
+				StartUI.showAllItems(tracker);
 			} else if (select == 2) {
 				StartUI.editItem(input, tracker);
 			} else if (select == 3) {
