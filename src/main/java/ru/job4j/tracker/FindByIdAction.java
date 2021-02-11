@@ -12,7 +12,7 @@ public class FindByIdAction implements UserAction {
 		System.out.println("Enter ID to find");
 		int id = input.askInt("Ent ID: ");
 		Item findId = tracker.findById(id);
-		if (tracker.findById(id) != null) {
+		if (findId != null) {
 			System.out.println("Result find by id: " + findId);
 		} else {
 			System.out.println("Error. Not found id: " + id);
