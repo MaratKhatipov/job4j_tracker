@@ -19,11 +19,11 @@ public class DeleteItemAction implements UserAction {
 		System.out.println("Enter ID to delete");
 		int delId = input.askInt("Enter ID :");
 		if (tracker.delete(delId)) {
-			System.out.println(
+			out.println(
 					"Delete was successful: "
 							+ delId);
 		} else {
-			System.out.println(
+			out.println(
 					"Error. Delete failed: "
 							+ delId);
 		}

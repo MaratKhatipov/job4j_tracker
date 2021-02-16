@@ -21,9 +21,9 @@ public class EditItemAction implements UserAction {
 		String newName = input.askStr("New name");
 		Item newApplication = new Item(newName);
 		if (tracker.replace(id, newApplication)) {
-			System.out.println("Editing was successful");
+			out.println("Editing was successful");
 		} else {
-			System.out.println("Error. Editing failed ");
+			out.println("Error. Editing failed ");
 		}
 		return true;
 	}
