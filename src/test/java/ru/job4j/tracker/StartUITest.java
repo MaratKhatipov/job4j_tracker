@@ -1,6 +1,9 @@
 package ru.job4j.tracker;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import static java.lang.String.format;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -18,8 +21,7 @@ public class StartUITest {
 		};
 		new StartUI(out).init(in, tracker, actions);
 		assertThat(out.toString(), is(
-				"Menu." + System.lineSeparator()
-						+ "0. Exit Program." + System.lineSeparator()
+				 "0. =Exit program=\r\n"
 		));
 	}
 
@@ -73,5 +75,26 @@ public class StartUITest {
 		};
 		new StartUI(out).init(in, tracker, actions);
 		assertThat(item.getId(), is(1));
+	}
+
+	@Test
+	public void whenInvalidExit() {
+		Output out = new ConsoleOutput();
+		Input in = new StubInput(
+				new String[] {"13", "0"}
+		);
+		Tracker tracker = new Tracker();
+		UserAction[] actions = {
+				new ExitAction(out)
+		};
+		new StartUI(out).init(in, tracker, actions);
+		Assert.assertThat(out.toString(), is(format(
+				"Menu. \n"
+				+ "0. =Exit program=\n"
+				+ "Wrong input !!! Enter from 0 to 0\n"
+				+ "Menu. \n"
+				+ "0. =Exit program="
+				)
+		));
 	}
 }
