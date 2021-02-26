@@ -15,7 +15,7 @@ public class StartUITest {
 		Input in = new StubInput(
 				new String[] {"0"}
 		);
-		Tracker tracker = new Tracker();
+		Tracker tracker = Tracker.getInstance();
 		UserAction[] actions = {
 				new ExitAction(out)
 		};
@@ -28,7 +28,7 @@ public class StartUITest {
 	@Test
 	public void whenShowAllItems() {
 		Output out = new StubOutput();
-		Tracker tracker = new Tracker();
+		Tracker tracker = Tracker.getInstance();
 		String showAllItems = "ShowAllItems item";
 		Item item = tracker.add(new Item(showAllItems));
 		Input in = new StubInput(
@@ -45,7 +45,7 @@ public class StartUITest {
 	@Test
 	public void whenFindByName() {
 		Output out = new StubOutput();
-		Tracker tracker = new Tracker();
+		Tracker tracker = Tracker.getInstance();
 		String findByName = "Find";
 		Item item = tracker.add(new Item(findByName));
 		tracker.add(new Item(findByName));
@@ -63,7 +63,7 @@ public class StartUITest {
 	@Test
 	public void whenFindById() {
 		Output out = new StubOutput();
-		Tracker tracker = new Tracker();
+		Tracker tracker = Tracker.getInstance();
 		String findById = "FindId";
 		Item item = tracker.add(new Item(findById));
 		Input in = new StubInput(
@@ -79,22 +79,21 @@ public class StartUITest {
 
 	@Test
 	public void whenInvalidExit() {
-		Output out = new ConsoleOutput();
+		Output out = new StubOutput();
 		Input in = new StubInput(
-				new String[] {"13", "0"}
+				new String[] {"1", "0"}
 		);
-		Tracker tracker = new Tracker();
+		Tracker tracker = Tracker.getInstance();
 		UserAction[] actions = {
 				new ExitAction(out)
 		};
 		new StartUI(out).init(in, tracker, actions);
-		Assert.assertThat(out.toString(), is(format(
-				"Menu. \n"
-				+ "0. =Exit program=\n"
-				+ "Wrong input !!! Enter from 0 to 0\n"
-				+ "Menu. \n"
-				+ "0. =Exit program="
+		Assert.assertThat(out.toString(), is((
+				"0. =Exit program=\r\n"
+				+ "Wrong input !!! Enter from 0 to 0\r\n"
+				+ "0. =Exit program=\r\n"
 				)
 		));
 	}
+
 }
