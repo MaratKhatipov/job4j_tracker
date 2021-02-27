@@ -89,9 +89,9 @@ public class StartUITest {
 		};
 		new StartUI(out).init(in, tracker, actions);
 		Assert.assertThat(out.toString(), is((
-				"0. =Exit program=\r\n"
-				+ "Wrong input !!! Enter from 0 to 0\r\n"
-				+ "0. =Exit program=\r\n"
+				"0. =Exit program=" + System.lineSeparator()
+				+ "Wrong input !!! Enter from 0 to 0" + System.lineSeparator()
+				+ "0. =Exit program=" + System.lineSeparator()
 				)
 		));
 	}
