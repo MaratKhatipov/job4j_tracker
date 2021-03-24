@@ -30,14 +30,12 @@ public class Tracker {
 
    public List<Item> findByName(String key) {
         List<Item> byKey = new ArrayList<>(); //Item[] byKey = new Item[items.length];
+       for (Item name : items) {
+           if (key.equals(name.getName())) {
+               byKey.add(name);
 
-        for (int index = 0; index < items.size(); index++) {
-            Item name = items.get(index);
-            if (key.equals(name.getName())) {
-                byKey.add(name);
-
-            }
-        }
+           }
+       }
         return byKey;
     }
 
@@ -72,13 +70,17 @@ public class Tracker {
             return false;
         }
     }
+
 /*
 Валидация была добавлена ранее: if (index != -1)
 */
 
     public boolean delete(int id) {
         int index = indexOf(id);
-        items.remove(index);
-        return true;
+        if (index != -1) {
+            items.remove(index);
+            return true;
+        }
+        return false;
     }
 }
