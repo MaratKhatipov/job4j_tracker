@@ -41,14 +41,12 @@ public class BankService {
 
 	public  Account findByRequisite(String passport, String requisite) {
 		User user = findByPassport(passport);
-		if (user == null) {
-			System.out.println("Can not find user");
-			return null;
-		}
-		List<Account> userAccount = users.get(user);
-		for (Account userReq : userAccount) {
-			if (userReq.getRequisite().equals(requisite)) {
-				return userReq;
+		if (user != null) {
+			List<Account> userAccount = users.get(user);
+			for (Account userReq : userAccount) {
+				if (userReq.getRequisite().equals(requisite)) {
+					return userReq;
+				}
 			}
 		}
 		System.out.println("Can not find requisite");
@@ -60,7 +58,7 @@ public class BankService {
 		boolean result = false;
 		Account srcAcc = findByRequisite(srcPassport, srcRequisite);
 		Account destAcc = findByRequisite(destPassport, destRequisite);
-		if (srcAcc != null && srcAcc.getBalance() >= amount) {
+		if (srcAcc != null && destAcc != null && srcAcc.getBalance() >= amount) {
 			srcAcc.setBalance(srcAcc.getBalance() - amount);
 			destAcc.setBalance(destAcc.getBalance() + amount);
 			result = true;

@@ -111,4 +111,18 @@ public class BankServiceTest {
 		);
 		assertThat(false, is(chek));
 	}
+
+	@Test
+	public void transferMoneyFalse3() {
+		User user = new User("3434", "Petr Arsentev");
+		BankService bank = new BankService();
+		bank.addUser(user);
+		bank.addAccount(user.getPassport(), new Account("6546", 350D));
+		bank.addAccount(user.getPassport(), new Account("113", 350D));
+		boolean chek = bank.transferMoney(
+				user.getPassport(), "5546", user.getPassport(),
+				null, 150D
+		);
+		assertThat(false, is(chek));
+	}
 }
