@@ -14,28 +14,32 @@ public class ItemTest {
 	@Test
 	public void sortAscending() {
 		List<Item> items = Arrays.asList(
-				new Item(4, "C"),
-				new Item(2, "F"),
-				new Item(1, "E")
+				new Item(4),
+				new Item(2),
+				new Item(1)
+		);
+		List<Item> expected = Arrays.asList(
+				new Item(1),
+				new Item(2),
+				new Item(4)
 		);
 		Collections.sort(items);
-		assertThat(items.toString(), is("[ Item {id = 1, name = 'E'},  "
-				+ "Item {id = 2, name = 'F'},  "
-				+ "Item {id = 4, name = 'C'}]")
-		);
+		assertThat(expected, is(items));
 	}
 
 	@Test
 	public void sortDescending() {
 		List<Item> items = Arrays.asList(
-				new Item(4, "C"),
-				new Item(2, "F"),
-				new Item(1, "E")
+				new Item(1),
+				new Item(2),
+				new Item(4)
+		);
+		List<Item> expected = Arrays.asList(
+				new Item(4),
+				new Item(2),
+				new Item(1)
 		);
 		items.sort(Collections.reverseOrder());
-		assertThat(items.toString(), is("[ Item {id = 4, name = 'C'},  "
-				+ "Item {id = 2, name = 'F'},  "
-				+ "Item {id = 1, name = 'E'}]")
-		);
+		assertThat(expected, is(items));
 	}
 }
