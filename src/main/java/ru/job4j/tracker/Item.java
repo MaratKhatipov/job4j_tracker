@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 Поле id - это уникальный номер заявления.
 Поле name содержит название заявления.
  */
-public class Item {
+public class Item  implements Comparable<Item> {
     private LocalDateTime created = LocalDateTime.now();
 
     private int id;
@@ -55,9 +55,13 @@ public class Item {
     @Override
     public String toString() {
         return " Item {"
-                + "created = " + created.format(timeFormatter)
-                +  ", id = " + id
+                +  "id = " + id
                 +  ", name = '" + name + '\''
                 + '}';
+    }
+
+    @Override
+    public int compareTo(Item another) {
+        return Integer.compare(id, another.getId());
     }
 }
