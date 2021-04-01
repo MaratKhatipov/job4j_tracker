@@ -43,13 +43,13 @@ public class LexSortTest {
 	@Test
 	public void whenEquals() {
 		String[] input = {
-				"20. Task.",
-				"20. Task.",
+				"20. exercise.",
+				"20. goal.",
 				"20. Task."
 		};
 		String[] out = {
-				"20. Task.",
-				"20. Task.",
+				"20. exercise.",
+				"20. goal.",
 				"20. Task."
 		};
 		Arrays.sort(input, new LexSort());
