@@ -9,10 +9,12 @@ public class MagicBall {
 		Scanner yourQuestion = new Scanner(System.in);
 		String question = yourQuestion.nextLine();
 		int answer = new Random().nextInt(3);
-		switch (answer) {
-			case 0 -> System.out.println("YES");
-			case 1 -> System.out.println("NO");
-			default -> System.out.println("May be ");
+		if (answer == 1) {
+			System.out.println("YES");
+		} else if (answer == 2) {
+			System.out.println("NO");
+		} else {
+			System.out.println("May be ");
 		}
 	}
 }
