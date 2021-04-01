@@ -25,48 +25,32 @@ public class LexSortTest {
 	}
 
 	@Test
-	public void sortWithPoint() {
+	public void whenEqu1and2() {
 		String[] input = {
-				"2.0.1 Task.",
-				"2.0.5 Task.",
+				"2. Task.",
+				"2. Task.",
 				"1. Task."
 		};
 		String[] out = {
 				"1. Task.",
-				"2.0.1 Task.",
-				"2.0.5 Task."
+				"2. Task.",
+				"2. Task."
 		};
 		Arrays.sort(input, new LexSort());
 		assertThat(input, is(out));
 	}
 
 	@Test
-	public void sortWithPoint2() {
+	public void whenEquals() {
 		String[] input = {
-				"1.9.1 Task.",
-				"1.0.5 Task.",
-				"1.3.4.5 Task."
+				"20. Task.",
+				"20. Task.",
+				"20. Task."
 		};
 		String[] out = {
-				"1.0.5 Task.",
-				"1.3.4.5 Task.",
-				"1.9.1 Task."
-		};
-		Arrays.sort(input, new LexSort());
-		assertThat(input, is(out));
-	}
-
-	@Test
-	public void sortWithPoint3() {
-		String[] input = {
-				"4.9.1 Task.",
-				"1.0.5 Task.",
-				"10.3.4.5 Task."
-		};
-		String[] out = {
-				"1.0.5 Task.",
-				"4.9.1 Task.",
-				"10.3.4.5 Task."
+				"20. Task.",
+				"20. Task.",
+				"20. Task."
 		};
 		Arrays.sort(input, new LexSort());
 		assertThat(input, is(out));
