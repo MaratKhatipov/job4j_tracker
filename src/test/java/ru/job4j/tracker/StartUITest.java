@@ -23,9 +23,8 @@ public class StartUITest {
 		actions.add(new ExitAction(out));
 
 		new StartUI(out).init(in, tracker, actions);
-		assertThat(out.toString(), is(
-				 "0. =Exit program=\r\n"
-		));
+		assertThat("0. =Exit program=\r\n", is(
+				out.toString()));
 	}
 
 	@Test
@@ -73,7 +72,7 @@ public class StartUITest {
 		actions.add(new FindByIdAction(out));
 		actions.add(new ExitAction(out));
 		new StartUI(out).init(in, tracker, actions);
-		assertThat(item.getId(), is(1));
+		assertThat(1, is(item.getId()));
 	}
 
 	@Test
