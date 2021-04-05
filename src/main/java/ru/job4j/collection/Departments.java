@@ -18,13 +18,14 @@ public class Departments {
 	public static List<String> fillGaps(List<String> deps) {
 		Set<String> temp = new LinkedHashSet<>();
 		for (String value : deps) {
-			String start = value.split("/")[0];
-			temp.add(start);
+			String start = "";
 			for (String end : value.split("/")) {
-				if (!end.equals(start)) {
-					start = start + "/" + end;
-					temp.add(start);
+				if (!start.equals("")) {
+					start += "/" + end;
+				} else {
+					start = end;
 				}
+				temp.add(start);
 			}
 		}
 		return new ArrayList<>(temp);
