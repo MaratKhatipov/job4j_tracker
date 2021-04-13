@@ -52,30 +52,27 @@ public class BankService {
 	 * @param passport паспорт, который ищём
 	 * @return возвращаем номер паспорта, если нашли
 	 */
-	public User findByPassport(String passport) {
-		for (User index : users.keySet()) {
-			if (index.getPassport().equals(passport)) {
-				return index;
-			}
-		}
-		return null;
-	}
 
+	public User findByPassport(String passport) {
+		return users.keySet()
+				.stream()
+				.filter(u -> u.getPassport().equals(passport))
+				.findFirst().orElse(null);
+	}
 	/**
 	 * Метод поиска счёта по пользователя по реквизитам
 	 * @param passport номер паспорта для поиска
 	 * @param requisite реквизиты для поиска
 	 * @return возвращаем счёт пользователя
 	 */
-	public  Account findByRequisite(String passport, String requisite) {
+
+	public Account findByRequisite(String passport, String requisite) {
 		User user = findByPassport(passport);
 		if (user != null) {
-			List<Account> userAccount = users.get(user);
-			for (Account userReq : userAccount) {
-				if (userReq.getRequisite().equals(requisite)) {
-					return userReq;
-				}
-			}
+			return users.get(user).
+					stream().
+					filter(u -> u.getRequisite().equals(requisite)).
+					findFirst().orElse(null);
 		}
 		return null;
 	}
