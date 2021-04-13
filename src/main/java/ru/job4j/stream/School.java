@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class School {
-	List<Student> collect(
+	public List<Student> collect(
 			List<Student> students,
 						  Predicate<Student> predic) {
 		return students
