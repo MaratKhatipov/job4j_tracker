@@ -5,10 +5,9 @@ import java.util.stream.Stream;
 public class MainCardGenerated {
 	public static void main(String[] args) {
 		Stream.of(Suit.values())
-				.flatMap(s -> Stream.of(Value.values())
-				.map(v -> v + " " + s))
+				.flatMap(suit -> Stream.of(Value.values())
+						.map(value -> new Card(suit, value)))
 				.forEach(System.out::println);
 	}
 
 }
-
