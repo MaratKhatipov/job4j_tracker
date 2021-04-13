@@ -7,21 +7,16 @@ import java.util.stream.Collectors;
 public class ProfilesUnic {
 	public static List<AddressUnic> collect(List<ProfileUnic> profile) {
 		return profile.stream()
-				.map(
-						ProfileUnic::getAddress)
+				.map(ProfileUnic::getAddress)
 				.collect(Collectors.toList());
 	}
 
 	public static List<AddressUnic> sortedCol(List<ProfileUnic> profiles) {
-		return profiles.stream().
-				map(
-						ProfileUnic::getAddress)
-				.sorted(
-						Comparator.comparing(
-								AddressUnic::getCity))
+		return profiles.stream()
+				.map(ProfileUnic::getAddress)
+				.sorted(Comparator.comparing(AddressUnic::getCity))
 				.distinct()
-				.collect(
-						Collectors.toList());
+				.collect(Collectors.toList());
 	}
 
 }
