@@ -3,6 +3,7 @@ package ru.job4j.collection;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -20,7 +21,7 @@ public class LexSortTest {
 				"2. Task.",
 				"3. Task."
 		};
-		Arrays.sort(input, new LexSort());
+		List.of(input, new LexSort());
 		assertThat(input, is(out));
 	}
 
@@ -36,7 +37,7 @@ public class LexSortTest {
 				"2. Task.",
 				"2. Task."
 		};
-		Arrays.sort(input, new LexSort());
+		List.of(input, new LexSort());
 		assertThat(input, is(out));
 	}
 
@@ -52,7 +53,7 @@ public class LexSortTest {
 				"20. goal.",
 				"20. Task."
 		};
-		Arrays.sort(input, new LexSort());
+		List.of(input, new LexSort());
 		assertThat(input, is(out));
 	}
 }

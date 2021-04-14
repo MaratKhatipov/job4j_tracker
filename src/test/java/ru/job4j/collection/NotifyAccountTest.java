@@ -14,13 +14,13 @@ public class NotifyAccountTest {
 
 	@Test
 	public void sent() {
-		List<Account> accounts = Arrays.asList(
+		List<Account> accounts = List.of(
 				new Account("123", "Petr Arsentev", "eDer3432f"),
 				new Account("142", "Petr Arsentev", "000001")
 
 		);
 		HashSet<Account> expect = new HashSet<>(
-				Arrays.asList(
+				List.of(
 						new Account("123", "Petr Arsentev", "eDer3432f"),
 						new Account("142", "Petr Arsentev", "000001")
 				)
@@ -30,7 +30,7 @@ public class NotifyAccountTest {
 
 	@Test
 	public void sentSame() {
-		List<Account> accounts = Arrays.asList(
+		List<Account> accounts = List.of(
 				new Account("123", "Petr Arsentev", "eDer3432f"),
 				new Account("123", "Petr", "eDer3432f"),
 				new Account("123", "Arsentev", "eDer3432f")
