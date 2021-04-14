@@ -21,7 +21,7 @@ public class LexSortTest {
 				"2. Task.",
 				"3. Task."
 		};
-		List.of(input, new LexSort());
+		Arrays.sort(input, new LexSort());
 		assertThat(input, is(out));
 	}
 
@@ -37,7 +37,7 @@ public class LexSortTest {
 				"2. Task.",
 				"2. Task."
 		};
-		List.of(input, new LexSort());
+		Arrays.sort(input, new LexSort());
 		assertThat(input, is(out));
 	}
 
@@ -53,7 +53,7 @@ public class LexSortTest {
 				"20. goal.",
 				"20. Task."
 		};
-		List.of(input, new LexSort());
+		Arrays.sort(input, new LexSort());
 		assertThat(input, is(out));
 	}
 }
