@@ -1,8 +1,9 @@
 //package example;
-
+//
 //public class RomanToInteger {
 //	public int romanToInt(String s) {
-//		int nums[] = new int[s.length()];
+//		int length = s.length();
+//		int[] nums = new int[length];
 //		for (int i = 0; i < s.length(); i++) {
 //			switch (s.charAt(i)) {
 //				case 'M':
